@@ -6,7 +6,7 @@
 // Infine, creiamo un nuovo array i cui elementi contengono solo nomi e falli subiti e stampiamo tutto in console.
 
 const squadreCalcio = [
-    
+
     { nome: 'Squadra 1', puntiFatti: 0, falliSubiti: 0 },
     { nome: 'Squadra 2', puntiFatti: 0, falliSubiti: 0 },
     { nome: 'Squadra 3', puntiFatti: 0, falliSubiti: 0 },
@@ -19,4 +19,28 @@ const squadreCalcio = [
     { nome: 'Squadra 10', puntiFatti: 0, falliSubiti: 0 }
 ];
 
+// settiamo array vuoto 
+let nuovoArray = [];
+
+for( let key in squadreCalcio){
+
+    // aggiungiamo un numero random alle chiavi puntiFatti e falliSubiti
+    squadreCalcio[key].puntiFatti = randomNumber(1, 50);
+    squadreCalcio[key].falliSubiti = randomNumber(1, 50);
+
+    // settiamo una variabile solo con le chiavi nome e falliSubiti
+    let nomeEFalli = [squadreCalcio[key].nome, squadreCalcio[key].falliSubiti];
+    
+    // aggiungiamo la variabile all array vuoto
+    nuovoArray.push(nomeEFalli);
+    
+}
 console.log(squadreCalcio);
+console.log(nuovoArray);
+
+
+// funzione per numeri casuali
+function randomNumber(min,max){
+    let numeroCasuale = (Math.floor(Math.random() * (max - min + 1)) + min);
+    return numeroCasuale;
+}
